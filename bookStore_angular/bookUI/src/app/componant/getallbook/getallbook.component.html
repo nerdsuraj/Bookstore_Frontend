@@ -1,0 +1,76 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayout.sm="row" fxLayout.xs="row">
+
+    <div class="bookandCount">
+        <span class="books">Books</span>
+        <span class="count">({{countbooks}} items)</span>
+    </div>
+
+    <div class="sortbyrelevance">
+        <mat-form-field appearance="outline">
+            <mat-label>Sort by relevance</mat-label>
+            <mat-select class="matselect">
+                <mat-option  value="one">Price:Low to High</mat-option>
+                <mat-option  value="two">Price:High to Low</mat-option>
+                <mat-option  value="third">Newest Arrivals</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+</div>
+
+<div fxLayoutAlign="center center" fxLayout="row wrap" fxLayoutGap="15px">
+    <div class="entirebook"
+        *ngFor="let book of allbooks"
+        fxLayout.sm="column">
+
+        <div class="bookimg" >
+            <img class="img1" src="../../../assets/img/sinchan.png" alt="">
+        </div>
+
+        <div class="bookname">
+            {{book.bookName}}
+        </div>
+        <div class="author">
+            by {{book.author}}
+        </div>
+        <div class="rating" fxLayoutAlign="space-evenly center">
+            4.5<img class="Star" src="../../../assets/img/star.png" alt="img">
+        </div>
+
+        <div class="quantity">
+            ({{book.quantity}})
+        </div>
+
+        <div class="price" fxLayout="row">
+            <div class="discountprice">
+                Rs.{{book.discountPrice}}
+            </div>
+            <div class="originalprice">
+                <del> Rs.{{book.price}} </del> <!-- <del> tag is used to show the removal from document-->
+            </div>
+        </div>
+
+        <div class="cartandwishlistbutton" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-evenly center">
+            <div >
+                <button class="addtobag" >
+                    <img class="cartimg" src="../../../assets/img/cart_black.png" alt="">
+                </button>
+            </div>
+
+            <div  fxLayout="row" fxLayoutAlign="start center">
+                <button mat-raised-button class="addedtobag">
+                    ADDED TO BAG
+                </button>
+            </div>
+
+            <div  fxLayout="row" fxLayoutAlign="start center">
+                <button class="wishlist" >
+                    <mat-icon class="wishlistIcon">favorite</mat-icon>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
