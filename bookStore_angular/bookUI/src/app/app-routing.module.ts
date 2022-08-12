@@ -6,17 +6,22 @@ import { LoginComponent } from './componant/login/login.component';
 import { SignupComponent } from './componant/signup/signup.component';
 
 const routes: Routes = [
-  {path:"signup",component:SignupComponent},
-  {path:'login',component:LoginComponent},
-  {path:"dashboard",component:DashboardComponent,
-  children:[
-    {
-      path:'book',
-      component:GetallbookComponent,
-    },
-  ]
-  
-},
+  { path: "signup", component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: "dashboard", component: DashboardComponent,
+    children: [
+      {
+        path: '', redirectTo: "dashboard/book",
+        pathMatch: 'full'
+      },
+      {
+        path: 'book',
+        component: GetallbookComponent,
+      },
+    ]
+
+  },
 ];
 
 @NgModule({

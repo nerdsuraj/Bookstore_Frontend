@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import { SignupComponent } from './componant/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './componant/login/login.component';
 import { GetallbookComponent } from './componant/getallbook/getallbook.component';
+import { SearchbookPipe } from './pipe/searchbook.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { GetallbookComponent } from './componant/getallbook/getallbook.component
     DashboardComponent,
     SignupComponent,
     LoginComponent,
-    GetallbookComponent
+    GetallbookComponent,
+    SearchbookPipe
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { GetallbookComponent } from './componant/getallbook/getallbook.component
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxPaginationModule
     
   ],
   providers: [],
