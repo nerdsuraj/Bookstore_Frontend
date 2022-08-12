@@ -9,9 +9,9 @@
         <mat-form-field appearance="outline">
             <mat-label>Sort by relevance</mat-label>
             <mat-select class="matselect">
-                <mat-option  value="one">Price:Low to High</mat-option>
-                <mat-option  value="two">Price:High to Low</mat-option>
-                <mat-option  value="third">Newest Arrivals</mat-option>
+                <mat-option (click)="lowtohigh()" value="one">Price:Low to High</mat-option>
+                <mat-option (click)=" hightolow()" value="two">Price:High to Low</mat-option>
+                <mat-option (click)="newestarrivals()" value="third">Newest Arrivals</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
@@ -20,7 +20,7 @@
 
 <div fxLayoutAlign="center center" fxLayout="row wrap" fxLayoutGap="15px">
     <div class="entirebook"
-        *ngFor="let book of allbooks"
+        *ngFor="let book of allbooks | searchbook:searchword | paginate: { itemsPerPage: 5, currentPage: page, totalItems:totalLength }"
         fxLayout.sm="column">
 
         <div class="bookimg" >
@@ -73,4 +73,7 @@
 
     </div>
 
+</div>
+<div class="pagination" fxLayoutAlign="center center">
+    <pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
 </div>

@@ -1,6 +1,6 @@
 <mat-toolbar class="mattoolbar" fxLayoutAlign="center center" >
     <mat-toolbar-row>
-        <div class="imgandtext"  fxLayout="row" fxLayout.xs="row">
+        <div class="imgandtext"  fxLayout="row" fxLayout.xs="row" (click)="bookstore()">
             <div>
                 <img class="book" src="../../../assets/img/education.png" alt="">
             </div>
@@ -13,7 +13,7 @@
         <mat-card class="searchbar" fxLayout="row" fxLayout.xs="row" fxHide.sm fxHide.xs>
             <mat-icon class="searchimg" matTooltip="Search">search</mat-icon>
 
-            <input class="search1" type="text" name="search" placeholder="Search" #search
+            <input class="search1" (keyup)="searchword(search.value)" type="text" name="search" placeholder="Search" #search
                  fxHide.xs fxHide.sm>
             <!--this (keyup) is used for data binding for search pipe part THIS IS DONE FOR SEARCH PIPE PART IN GETALLBOOKS AND DASHBOARD-->
         </mat-card>
@@ -29,7 +29,7 @@
                     <h5 class="logouttext">To Logout account</h5>
                 </div>
 
-                <button  class="logoutbutton" mat-menu-item>
+                <button (click)="Logout()" class="logoutbutton" mat-menu-item>
                     Log Out
                 </button>
                 <button class="wishlistbutton"  mat-menu-item fxLayoutGap="0px">
