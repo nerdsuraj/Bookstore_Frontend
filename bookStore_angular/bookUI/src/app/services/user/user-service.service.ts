@@ -7,8 +7,11 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class UserServiceService {
   token: any;
+  
 
-  constructor(private httpService:HttpServiceService) { }
+  constructor(private httpService:HttpServiceService) { 
+    this.token = localStorage.getItem("token");
+  }
 
   login(reqData: any) {
     // console.log("inside the user.service", reqData);
@@ -35,13 +38,13 @@ export class UserServiceService {
 
   //for the customer details 
   useraddress(data: any) {
-
+// console.log("for token",this.token)
     let httpOption = {
-      Headers: new HttpHeaders({
-        'Content-Type': 'application/json',  //request and response are in the format of json means key-value pair
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',  
         'Authorization': " br " + this.token,  
       })
     }
-    return this.httpService.Post('cust', data, false, httpOption)
+    return this.httpService.Post('cust', data, true, httpOption)
   }
 }
