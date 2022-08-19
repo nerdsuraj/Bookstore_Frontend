@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserServiceService {
+  token: any;
 
   constructor(private httpService:HttpServiceService) { }
 
@@ -29,5 +30,18 @@ export class UserServiceService {
       })
     }
     return this.httpService.Post('users', reqData, false, httpOption)
+  }
+
+
+  //for the customer details 
+  useraddress(data: any) {
+
+    let httpOption = {
+      Headers: new HttpHeaders({
+        'Content-Type': 'application/json',  //request and response are in the format of json means key-value pair
+        'Authorization': " br " + this.token,  
+      })
+    }
+    return this.httpService.Post('cust', data, false, httpOption)
   }
 }

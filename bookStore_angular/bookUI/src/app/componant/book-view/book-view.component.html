@@ -1,0 +1,151 @@
+<div class="section" fxLayout="row" fxLayoutAlign="center start" fxLayout.xs="column" fxFlex.xs="95">
+
+    <div class="smallimages" fxLayout="column" fxLayoutGap="10px" fxHide.sm fxHide.xs>
+        <div class="small1">
+            <img class="img1" src="../../../assets/img/dontmakeme.png" alt="">
+        </div>
+        <div class="small2">
+            <img class="img2" src="../../../assets/img/Image 46@2x.png" alt="">
+        </div>
+    </div>
+
+    <div class="imageandbutton" fxLayout="column">
+
+        <div class="bigimage" fxLayout="row">
+            <div class="big1">
+                <img class="image1" src={{bookDetails.bookImage}}  alt="No Photo Available">
+            </div>
+        </div>
+
+        <div class="cartandwishlistbutton" fxLayoutGap="5px" fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+                <button  mat-raised-button class="addtobag" (click)="addtocart()">
+                    ADD TO BAG
+                </button>
+
+                <!-- <div *ngIf="quantity" class="countquantity" fxLayout="row" fxLayoutAlign="space-evenly center">
+                    <button mat-mini-fab class="negativebutton">
+                        <span class="negative" > - </span>
+                    </button>
+                    <span class="bookquantity"> {{book_qty}} </span>
+                    <button mat-mini-fab class="positivebutton">
+                        <span class="positive"> + </span>
+                    </button>
+                </div> -->
+
+
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <button mat-flat-button class="wishlist">
+                    <mat-icon class="wishlistIcon">favorite</mat-icon>
+                    WISHLIST
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bookdetailsdiv" fxLayout="column" fxLayout.xs="column">
+        <div class="entirebook" fxLayout="column" fxLayout.sm="column">
+
+            <div class="bookname">
+                {{bookDetails.bookName}}
+            </div>
+            <div class="author">
+                by {{bookDetails.author}}
+            </div>
+            <div class="rating" fxLayoutAlign="space-evenly center">
+                4.5<img class="Star" src="../../../assets/img/star.png" alt="">
+            </div>
+            <div class="quantity">
+                ({{bookDetails.quantity}})
+            </div>
+
+            <div class="price" fxLayout="row" fxLayoutGap="10px">
+                <div class="discountprice">
+                    Rs.{{bookDetails.discountPrice}}
+                </div>
+                <div class="originalprice">
+                    <del> Rs.{{bookDetails.price}} </del>
+                </div>
+            </div>
+
+        </div>
+           
+        <div fxLayout="column" fxLayoutAlign="start start">
+            <span class="bookdetail">Book Detail</span>
+            <p class="bookparagraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut<br> labore
+                et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris<br> nisi ut aliquip ex ea commodo
+                consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit<br> esse cillum dolore eu fugiat nulla
+                pariatur.
+                Excepteur sint occaecat cupidatat non proident,<br> sunt in culpa qui officia deserunt mollit anim id
+                est laborum.
+            </p>
+        </div>
+
+        <div class="customerfeedback">
+            <span>Customer Feedback</span>
+        </div>
+
+        <div class="overallrating">
+            <div class="rate">
+                <p class="ratename">Overall Rating</p>
+                <div>
+                    <div class="star-widget" fxLayout="row">
+
+                        <input type="radio" name="rate" id="rate-1"  value="1">
+
+                        <label for="rate-1" class="fa fa-star"></label>
+
+                        <input type="radio" name="rate" id="rate-4"  value="2">
+                        <label for="rate-2" class="fa fa-star"></label>
+
+                        <input type="radio" name="rate" id="rate-3"  value="3">
+                        <label for="rate-3" class="fa fa-star"></label>
+
+                        <input type="radio" name="rate" id="rate-2"  value="4">
+                        <label for="rate-4" class="fa fa-star"></label>
+
+                        <input type="radio" name="rate" id="rate-1"  value="5">
+                        <label for="rate-5" class="fa fa-star"></label>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <input  class="review" type="text" placeholder="Write your review">
+                
+            </div>
+            <div fxLayoutAlign="end center">
+                <button class="submitbutton" mat-flat-button color="primary">Submit</button>
+            </div>
+        </div>
+        <div class="userfeedback"  fxLayout="column wrap"
+        fxLayoutAlign="start start" fxLayoutGap="10px">
+        <div>
+            <div fxLayoutGap="10px">
+              
+                <span class="feedbackname">u can bulid the class for method</span>
+            </div>
+
+            <div>
+                <span class="feedbackrating">rating is awsome</span>
+
+            </div>
+
+            <div>
+                <span class="feedbackcomment">this book is awsome </span>
+
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+
+</div>

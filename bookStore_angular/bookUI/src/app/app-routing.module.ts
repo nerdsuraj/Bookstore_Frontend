@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookViewComponent } from './componant/book-view/book-view.component';
+import { CartComponent } from './componant/cart/cart.component';
 import { DashboardComponent } from './componant/dashboard/dashboard.component';
 import { GetallbookComponent } from './componant/getallbook/getallbook.component';
 import { LoginComponent } from './componant/login/login.component';
@@ -18,6 +20,14 @@ const routes: Routes = [
       {
         path: 'book',
         component: GetallbookComponent,
+      },
+      {
+        path: 'cart',
+        component: CartComponent
+      },
+      {
+        path: 'bookview/:bookId',
+        component: BookViewComponent
       },
     ]
 

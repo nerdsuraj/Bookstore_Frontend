@@ -20,11 +20,11 @@
 
 <div fxLayoutAlign="center center" fxLayout="row wrap" fxLayoutGap="15px">
     <div class="entirebook"
-        *ngFor="let book of allbooks | searchbook:searchword | paginate: { itemsPerPage: 5, currentPage: page, totalItems:totalLength }"
+        *ngFor="let book of allbooks | paginate: { itemsPerPage: 7, currentPage: page, totalItems:totalLength } "
         fxLayout.sm="column">
-
-        <div class="bookimg" >
-            <img class="img1" src="../../../assets/img/sinchan.png" alt="">
+        <!-- | searchbook:searchword -->
+        <div class="bookimg" (click)="bookview(book)">
+            <img class="img1" src={{book.bookImage}} alt="no image">
         </div>
 
         <div class="bookname">
@@ -51,23 +51,23 @@
         </div>
 
         <div class="cartandwishlistbutton" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-evenly center">
-            <div >
+            <!-- <div >
                 <button class="addtobag" >
                     <img class="cartimg" src="../../../assets/img/cart_black.png" alt="">
                 </button>
-            </div>
+            </div> -->
 
             <div  fxLayout="row" fxLayoutAlign="start center">
                 <button mat-raised-button class="addedtobag">
-                    ADDED TO BAG
+                    ADD TO BAG
                 </button>
             </div>
 
-            <div  fxLayout="row" fxLayoutAlign="start center">
+            <!-- <div  fxLayout="row" fxLayoutAlign="start center">
                 <button class="wishlist" >
                     <mat-icon class="wishlistIcon">favorite</mat-icon>
                 </button>
-            </div>
+            </div> -->
 
         </div>
 
