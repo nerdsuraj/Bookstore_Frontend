@@ -5,6 +5,7 @@ import { CartComponent } from './componant/cart/cart.component';
 import { DashboardComponent } from './componant/dashboard/dashboard.component';
 import { GetallbookComponent } from './componant/getallbook/getallbook.component';
 import { LoginComponent } from './componant/login/login.component';
+import { OrderplacedComponent } from './componant/orderplaced/orderplaced.component';
 import { SignupComponent } from './componant/signup/signup.component';
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'bookview/:bookId',
         component: BookViewComponent
+      },
+      {
+        path: 'order',
+        component: OrderplacedComponent
       },
     ]
 

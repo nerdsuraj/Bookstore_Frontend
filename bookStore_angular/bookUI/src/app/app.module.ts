@@ -30,6 +30,7 @@ import { GetallbookComponent } from './componant/getallbook/getallbook.component
 import { SearchbookPipe } from './pipe/searchbook.pipe';
 import { CartComponent } from './componant/cart/cart.component';
 import { BookViewComponent } from './componant/book-view/book-view.component';
+import { OrderplacedComponent } from './componant/orderplaced/orderplaced.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { BookViewComponent } from './componant/book-view/book-view.component';
     SearchbookPipe,
     CartComponent,
     BookViewComponent,
+    OrderplacedComponent,
     
   ],
   imports: [

@@ -178,14 +178,15 @@
                         <span>Add New Address</span>
                     </div>
                     <div>
-                        <button mat-flat-button class="continuebutton" color="primary">Continue</button>
+                        <button mat-flat-button class="continuebutton" color="primary"
+                        (click)="setStep(2)" >Continue</button>
                     </div>
                 </div>
             </form>
         </div>
     </mat-expansion-panel>
 
-    <!-- <mat-expansion-panel class="panel3"  hideToggle>
+     <mat-expansion-panel class="panel3" [expanded]="step2" hideToggle>
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Order Summary
@@ -199,32 +200,27 @@
                     <div class="cartbook" fxLayout="row" fxLayout="start center" *ngFor="let book of cartbooks">
                         <div>
                             <div class="image" fxLayoutAlign="start center">
-                                <img class="bookImage" src="../../../assets/Image 11@2x.png">
+                                <img class="bookImage" src={{book.bookImage}} >
                             </div>
                         </div>
 
                         <div class="entirebook" fxLayout="column" fxLayout.sm="column">
 
                             <div class="bookname">
-                                {{book.product_id.bookName}}
+                                {{book.bookName}}
                             </div>
                             <div class="author">
-                                by {{book.product_id.author}}
+                                by {{book.author}}
                             </div>
                             <div class="price" fxLayout="row" fxLayoutGap="10px">
                                 <div class="discountprice">
-                                    Rs.{{book.product_id.discountPrice}}
+                                    Rs.{{book.discountPrice}}
                                 </div>
                                 <div class="originalprice">
-                                    <del> Rs.{{book.product_id.price}} </del>
+                                    <del> Rs.{{book.price}} </del>
                                 </div>
                             </div>
-
-
-
                         </div>
-
-
                     </div>
 
                 </div>
@@ -232,7 +228,7 @@
                 <div class="rightdiv" fxLayout="column" fxLayoutAlign="space-between center">
 
                     <div>
-                        <button mat-flat-button class="checkoutbutton" 
+                        <button mat-flat-button class="checkoutbutton" routerLink="/dashboard/order"
                             color="primary">Checkout</button>
                     </div>
                 </div>
@@ -241,6 +237,6 @@
 
         </div>
 
-    </mat-expansion-panel> -->
+    </mat-expansion-panel> 
 
 </mat-accordion>
