@@ -32,7 +32,7 @@ const routes: Routes = [
       },
       {
         path: 'order',
-        component: OrderplacedComponent
+        component:OrderplacedComponent
       },
     ]
 

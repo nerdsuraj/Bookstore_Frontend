@@ -66,4 +66,16 @@ userupdatequantity(bookID: any) {
   return this.httpService.put('cart/' + bookID, null,  true, httpOption)
 }
 
+//ispursched the book or not
+purchased(){
+  let httpOption = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': "br " + this.token,
+    })
+  }
+  return this.httpService.put('cart/purch/true', null, true, httpOption)
+}
+
+
 }
