@@ -5,11 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchbookPipe implements PipeTransform {
 
-  transform(value: any = [], searchString?: string) {  // this is a transform method used to transform our O/P.
+  transform(value: any = [], searchString?: string):any {  
     console.log(searchString);
 
     if (!searchString) {
-      return value;
+      return searchString;
     }
 
     const allbooks = []
@@ -22,4 +22,7 @@ export class SearchbookPipe implements PipeTransform {
     return allbooks;
   }
 
+  // return noteFilterData.filter((x: any) => x.Title.toLocaleLowerCase().includes(searchString)
+  //     || x.Descreption.toLocaleLowerCase().includes(searchString)
+  //   );
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/app/services/book/book.service';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/dataservice/data.service';
+
 
 @Component({
   selector: 'app-getallbook',
@@ -17,17 +18,22 @@ export class GetallbookComponent implements OnInit {
   bookid: any;
   searchword: any;
 
-  constructor(private books: BookService, private route: Router,private dataservice:DataService) { }
+  constructor(private books: BookService, private route: Router,private dataservice:DataService,
+    private activatedroute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.dataservice.receivedData.subscribe((response: any) => {  
-      console.log(response)
+    // this.dataservice.receivedData.subscribe((response: any) => {  
+    //   console.log(response)
 
-      this.searchword = response;
-      console.log(this.searchword);
+      // this.searchword = response;
+      // console.log(this.searchword);
+
+      
+    this.bookid = this.activatedroute.snapshot.paramMap.get("bookId"); 
+    console.log(this.bookid);
 
 
-    });
+    // });
     this.getallbooks()
   }
 
@@ -42,12 +48,17 @@ export class GetallbookComponent implements OnInit {
   }
 
   lowtohigh() {
-    this.allbooks = this.allbooks.sort((low: any, high: any) => low.price - high.price); //.price is coming from backend api
+    this.allbooks = this.allbooks.sort((low: any, high: any) => low.price - high.price); 
   }
   hightolow() {
     this.allbooks = this.allbooks.sort((low: any, high: any) => high.price - low.price);
   }
   newestarrivals() {
     this.allbooks.reverse();
+  }
+  bookview(book: any) {  
+    this.dataservice.sendData(book)
+    localStorage.setItem('bookId', book._id);  
+    this.route.navigateByUrl('/dashboard/bookview/' + book._id) 
   }
 }

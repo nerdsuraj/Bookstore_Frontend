@@ -15,6 +15,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +28,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './componant/login/login.component';
 import { GetallbookComponent } from './componant/getallbook/getallbook.component';
 import { SearchbookPipe } from './pipe/searchbook.pipe';
+import { CartComponent } from './componant/cart/cart.component';
+import { BookViewComponent } from './componant/book-view/book-view.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +39,10 @@ import { SearchbookPipe } from './pipe/searchbook.pipe';
     SignupComponent,
     LoginComponent,
     GetallbookComponent,
-    SearchbookPipe
+    SearchbookPipe,
+    CartComponent,
+    BookViewComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,7 +61,10 @@ import { SearchbookPipe } from './pipe/searchbook.pipe';
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatExpansionModule,
+    MatRadioModule,
+    NgxStarRatingModule
     
   ],
   providers: [],
