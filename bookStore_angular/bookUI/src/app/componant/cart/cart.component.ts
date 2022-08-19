@@ -71,6 +71,9 @@ export class CartComponent implements OnInit {
 
       }
       this.user.useraddress(payload).subscribe((response: any) => {
+        this.snackbar.open('Address Added Sucessfull', 'Ok', {
+          duration: 2000
+        });
         console.log(response);
 
       })
@@ -119,6 +122,27 @@ export class CartComponent implements OnInit {
         this.step2 = true;
         this.step2button = false;
       }
+    }
+  }
+
+  //for purcshed the book
+  purchased() {
+    console.log("purchased is called")
+    if (this.customerForm.valid) {
+      // console.log("The input address data is valid: ", this.customerForm.value)
+      
+      this.books.purchased().subscribe((responce: any) => {
+        console.log("The purchased responce is :", responce)
+
+        this.snackbar.open('purchased Sucessfull', 'Ok', {
+          duration: 2000
+        });
+
+      }, (error: any) => {
+        console.log("The error is: ", error);
+        this.snackbar.open(error.error.message, 'Ok', {
+        });
+      })
     }
   }
 

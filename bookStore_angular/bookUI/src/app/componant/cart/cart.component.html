@@ -228,8 +228,8 @@
                 <div class="rightdiv" fxLayout="column" fxLayoutAlign="space-between center">
 
                     <div>
-                        <button mat-flat-button class="checkoutbutton" routerLink="/dashboard/order"
-                            color="primary">Checkout</button>
+                        <button mat-flat-button class="checkoutbutton" (click)="purchased()"
+                            color="primary"  routerLink="/dashboard/order">Checkout</button>
                     </div>
                 </div>
 
