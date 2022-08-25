@@ -77,5 +77,59 @@ purchased(){
   return this.httpService.put('cart/purch/true', null, true, httpOption)
 }
 
+//for the wishlist items
+userwishlist() {
+  let httpOption = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "br " + this.token,
+    })
+  }
+  return this.httpService.Get('wish', true, httpOption)
+}
+
+//wishlist post
+useraddtowishlist(bookID: any) {  
+
+  let httpOption = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "br " + this.token,
+    })
+  }
+  return this.httpService.Post('wish/' + bookID, {}, true, httpOption)
+}
+
+//user to deletd the book from the wishlist
+userremovewishlistitem(bookID: any) {
+  let httpOption = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "br " + this.token,
+    })
+  }
+  return this.httpService.put('wish/' + bookID, {}, true, httpOption)
+}
+
+//user added to the feedback 
+useraddfeedback(productID: any, data: any) {
+  let httpOption = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "br " + this.token
+    })
+  }
+  return this.httpService.Post('users/feedback/' + productID, data, true, httpOption)
+}
+
+usergetfeedback(productID: any) {
+  let httpOption = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "br " + this.token
+    })
+  }
+  return this.httpService.Get('users/allfeedback/' + productID, true, httpOption)
+}
 
 }

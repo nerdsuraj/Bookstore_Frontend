@@ -7,10 +7,19 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
   private messageSource = new BehaviorSubject('');  
   receivedData = this.messageSource.asObservable();
+
+  private searchMessageSource = new BehaviorSubject("");
+  newSearchMessage = this.searchMessageSource.asObservable();
   
   constructor() { }
   
   sendData(message: any) { 
     this.messageSource.next(message)
   }
+
+  searchMessage(message: string) {
+    this.searchMessageSource.next(message)
+  }
+  
+ 
 }

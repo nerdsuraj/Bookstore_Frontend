@@ -34,7 +34,8 @@ export class BookViewComponent implements OnInit {
     this.bookid = this.activatedroute.snapshot.paramMap.get("bookId");                                                                                                    //this "bookID" we have set in the getallbooks.ts in quickview() method & we are getting/storing bookid by using activated route part and not by using local storage as done and commented above
     // console.log(this.bookid);
     this.subscription = this.data.receivedData.subscribe(responce => this.bookDetails = responce)
-    
+   
+    this.getfeedback();
   }
 
   // getbook() {
@@ -48,6 +49,8 @@ export class BookViewComponent implements OnInit {
   //   });
   // }
 
+  //for the add to cart
+  
   addtocart() {
     this.books.useraddtobag(this.bookid).subscribe((response: any) => {
       console.log(response);
@@ -58,5 +61,39 @@ export class BookViewComponent implements OnInit {
 
     })
     this.route.navigateByUrl('/dashboard/cart')
+  }
+
+  //for wishlist
+
+  addtowishlist() {
+    this.books.useraddtowishlist(this.bookid).subscribe((response: any) => {
+      console.log(response);
+
+    })
+    this.route.navigateByUrl('/dashboard/wish')
+  }
+
+  //for the feedback from the user
+  
+  addfeedback() {
+    let req = {
+      feedback: this.feedback,
+    }
+    this.books.useraddfeedback(this.bookid, req).subscribe((response: any) => {
+      console.log(response);
+      window.location.reload();
+
+    })
+
+  }
+
+  getfeedback() {
+    this.books.usergetfeedback(this.bookid).subscribe((response: any) => {
+      console.log( response.data.userAdded);
+      this.feedbackArray = response.data.userAdded;
+      this.feedbackArray.reverse();
+
+    })
+
   }
 }

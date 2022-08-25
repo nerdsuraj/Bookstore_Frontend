@@ -7,6 +7,7 @@ import { GetallbookComponent } from './componant/getallbook/getallbook.component
 import { LoginComponent } from './componant/login/login.component';
 import { OrderplacedComponent } from './componant/orderplaced/orderplaced.component';
 import { SignupComponent } from './componant/signup/signup.component';
+import { WishlistComponent } from './componant/wishlist/wishlist.component';
 
 const routes: Routes = [
   { path: "signup", component: SignupComponent },
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'order',
         component:OrderplacedComponent
+      },
+      {
+        path: 'wish',
+        component:WishlistComponent
       },
     ]
 

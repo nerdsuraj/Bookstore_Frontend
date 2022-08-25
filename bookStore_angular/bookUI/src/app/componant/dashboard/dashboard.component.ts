@@ -8,10 +8,12 @@ import { DataService } from 'src/app/services/dataservice/data.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  UserName: any
 
   constructor(private route: Router,private dataservice:DataService) { }
 
   ngOnInit(): void {
+    this.UserName=window.localStorage.getItem("Name")
   }
 
   //for bookstore logo
@@ -28,6 +30,6 @@ export class DashboardComponent implements OnInit {
   }
   searchword(search: any) {  // This is done for search pipe part in getallbooks and dashboard
     console.log(search);  //this .target.value is coming from console
-    this.dataservice.sendData(search) // done for search pipe & this .target.value is coming from console
+    this.dataservice.searchMessage(search) // done for search pipe & this .target.value is coming from console
   }
 }

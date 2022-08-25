@@ -31,6 +31,7 @@ import { SearchbookPipe } from './pipe/searchbook.pipe';
 import { CartComponent } from './componant/cart/cart.component';
 import { BookViewComponent } from './componant/book-view/book-view.component';
 import { OrderplacedComponent } from './componant/orderplaced/orderplaced.component';
+import { WishlistComponent } from './componant/wishlist/wishlist.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { OrderplacedComponent } from './componant/orderplaced/orderplaced.compon
     CartComponent,
     BookViewComponent,
     OrderplacedComponent,
+    WishlistComponent,
     
   ],
   imports: [

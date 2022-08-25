@@ -13,8 +13,8 @@
         <mat-card class="searchbar" fxLayout="row" fxLayout.xs="row" fxHide.sm fxHide.xs>
             <mat-icon class="searchimg" matTooltip="Search">search</mat-icon>
 
-            <input class="search1" (keyup)="searchword($event)" type="text" name="search" placeholder="Search" #search
-                 fxHide.xs fxHide.sm>
+            <input #input class="search1" (keyup)="searchword(input.value)" type="text" name="search" placeholder="Search" #search
+                 fxHide.xs fxHide.sm >
             
         </mat-card>
 
@@ -25,14 +25,14 @@
 
             <mat-menu class="matmenu" #menu="matMenu">
                 <div fxLayout="column" fxLayoutGap="3px">
-                    <h3 class="welcometext">Welcome,suraj Kumar</h3>
+                    <h3 class="welcometext">Welcome,{{UserName}}</h3>
                     <!-- <h5 class="logouttext">To Logout account</h5> -->
                 </div>
 
                 <button (click)="Logout()" class="logoutbutton" mat-menu-item>
                     Log Out
                 </button>
-                <button class="wishlistbutton"  mat-menu-item fxLayoutGap="0px">
+                <button class="wishlistbutton"  mat-menu-item fxLayoutGap="0px" routerLink="/dashboard/wish">
                     <mat-icon class="wishlistIcon">favorite</mat-icon>
                     Wishlist
                 </button>

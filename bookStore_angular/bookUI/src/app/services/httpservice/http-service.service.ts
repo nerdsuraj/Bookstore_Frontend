@@ -28,5 +28,8 @@ export class HttpServiceService {
   put(url: string,body:any, token: boolean ,httpOption:any={}) {
     return this.httpClient.put(this.Endurl+url,body,token && httpOption);
     }
-  
+  //deleted function
+  // Del(url: string,body:any, token: boolean ,httpOption:any={}) {
+  //   return this.httpClient.put(this.Endurl+url,body,token && httpOption);
+  //   }
 }

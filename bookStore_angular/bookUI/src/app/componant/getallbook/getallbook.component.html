@@ -20,11 +20,11 @@
 
 <div fxLayoutAlign="center center" fxLayout="row wrap" fxLayoutGap="15px">
     <div class="entirebook"
-        *ngFor="let book of allbooks | paginate: { itemsPerPage: 7, currentPage: page, totalItems:totalLength } "
+        *ngFor="let book of allbooks | searchbook:searchword | paginate: { itemsPerPage: 7, currentPage: page, totalItems:totalLength } "
         fxLayout.sm="column">
         <!-- | searchbook:searchword -->
         <div class="bookimg" (click)="bookview(book)">
-            <img class="img1" src={{book.bookImage}} alt="no image">
+            <img class="img1" src="../../../assets/img/dontmakeme.png" alt="no image">
         </div>
 
         <div class="bookname">

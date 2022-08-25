@@ -22,8 +22,9 @@ export class GetallbookComponent implements OnInit {
     private activatedroute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.dataservice.receivedData.subscribe((response: any) => {  
+    //this.dataservice.receivedData.subscribe((response: any) => {  
     //   console.log(response)
+    this.dataservice.newSearchMessage.subscribe(message => this.searchword = message)
 
       // this.searchword = response;
       // console.log(this.searchword);

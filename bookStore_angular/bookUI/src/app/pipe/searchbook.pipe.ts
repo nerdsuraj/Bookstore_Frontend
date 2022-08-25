@@ -6,23 +6,29 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchbookPipe implements PipeTransform {
 
   transform(value: any = [], searchString?: string):any {  
-    console.log(searchString);
 
     if (!searchString) {
-      return searchString;
-    }
+          return value;
+       }
 
-    const allbooks = []
-    for (const book of value) {
-      if (book.bookName.toLowerCase().includes(searchString) || book.description.toLowerCase().includes(searchString)
-        || book.author.toLowerCase().includes(searchString)) {
-        allbooks.push(book);
+       console.log(value)
+       return value.filter((x: any) => x.bookName.toLocaleLowerCase() .includes(searchString)
+         || x.author.toLocaleLowerCase().includes(searchString)
+         
+       );
+       
       }
-    }
-    return allbooks;
-  }
 
-  // return noteFilterData.filter((x: any) => x.Title.toLocaleLowerCase().includes(searchString)
+  // transform(noteFilterData: any, searchString?: string): any {
+  //   if (!searchString) {
+  //     return noteFilterData;
+  //   }
+  //   console.log(value)
+  //   return noteFilterData.filter((x: any) => x.Title.toLocaleLowerCase().includes(searchString)
   //     || x.Descreption.toLocaleLowerCase().includes(searchString)
   //   );
+  // }
+
+
+
 }

@@ -36,7 +36,7 @@
 
             </div>
             <div fxLayout="row" fxLayoutAlign="start center">
-                <button mat-flat-button class="wishlist">
+                <button mat-flat-button class="wishlist" (click)="addtowishlist()">
                     <mat-icon class="wishlistIcon">favorite</mat-icon>
                     WISHLIST
                 </button>
@@ -117,33 +117,33 @@
 
             </div>
             <div>
-                <input  class="review" type="text" placeholder="Write your review">
+                <input [(ngModel)]="feedback" class="review" type="text" placeholder="Write your review">
                 
             </div>
             <div fxLayoutAlign="end center">
-                <button class="submitbutton" mat-flat-button color="primary">Submit</button>
+                <button class="submitbutton" (click)="addfeedback()" mat-flat-button color="primary">Submit</button>
             </div>
         </div>
-        <div class="userfeedback"  fxLayout="column wrap"
-        fxLayoutAlign="start start" fxLayoutGap="10px">
-        <div>
-            <div fxLayoutGap="10px">
-              
-                <span class="feedbackname">u can bulid the class for method</span>
-            </div>
-
+        <div class="userfeedback" *ngFor="let feedback of feedbackArray" fxLayout="column wrap"
+            fxLayoutAlign="start start" fxLayoutGap="10px">
             <div>
-                <span class="feedbackrating">rating is awsome</span>
+                <div fxLayoutGap="10px">
+                    <button mat-mini-fab class="shortname"></button>
+                    <span class="feedbackname">{{feedback.firsttname}}</span>
+                </div>
 
+                <div>
+                    <span class="feedbackrating">{{feedback.rating}}</span>
+
+                </div>
+
+                <div>
+                    <span class="feedbackcomment">{{feedback.feedback}} </span>
+
+                </div>
             </div>
 
-            <div>
-                <span class="feedbackcomment">this book is awsome </span>
-
-            </div>
         </div>
-
-    </div>
 
     </div>
 
