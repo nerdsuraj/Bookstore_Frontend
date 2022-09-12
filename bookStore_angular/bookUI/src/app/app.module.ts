@@ -18,6 +18,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -68,7 +69,8 @@ import { WishlistComponent } from './componant/wishlist/wishlist.component';
     NgxPaginationModule,
     MatExpansionModule,
     MatRadioModule,
-    NgxStarRatingModule
+    NgxStarRatingModule,
+    MatBadgeModule
     
   ],
   providers: [],

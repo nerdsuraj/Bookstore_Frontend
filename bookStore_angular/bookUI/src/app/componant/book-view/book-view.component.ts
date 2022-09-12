@@ -13,9 +13,9 @@ import { DataService } from 'src/app/services/dataservice/data.service';
 })
 export class BookViewComponent implements OnInit {
   bookdata: any;
-
+  starValue: any = 0;
   bookid: any;  
-
+  userName:any;
   feedbackArray: any;
   feedback: any;
   value: any;
@@ -34,6 +34,8 @@ export class BookViewComponent implements OnInit {
     this.bookid = this.activatedroute.snapshot.paramMap.get("bookId");                                                                                                    //this "bookID" we have set in the getallbooks.ts in quickview() method & we are getting/storing bookid by using activated route part and not by using local storage as done and commented above
     // console.log(this.bookid);
     this.subscription = this.data.receivedData.subscribe(responce => this.bookDetails = responce)
+
+    this.userName = localStorage.getItem("Name")
    
     this.getfeedback();
   }
@@ -78,6 +80,9 @@ export class BookViewComponent implements OnInit {
   addfeedback() {
     let req = {
       feedback: this.feedback,
+      star:this.starValue,
+      name: this.userName,
+
     }
     this.books.useraddfeedback(this.bookid, req).subscribe((response: any) => {
       console.log(response);
@@ -95,5 +100,10 @@ export class BookViewComponent implements OnInit {
 
     })
 
+  }
+
+  getStarValue(value: any) {
+    console.log("Star value is :", value)
+    this.starValue = value
   }
 }

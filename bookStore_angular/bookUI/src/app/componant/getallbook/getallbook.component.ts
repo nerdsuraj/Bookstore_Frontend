@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/app/services/book/book.service';
 import {ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/dataservice/data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -19,19 +20,20 @@ export class GetallbookComponent implements OnInit {
   searchword: any;
 
   constructor(private books: BookService, private route: Router,private dataservice:DataService,
-    private activatedroute: ActivatedRoute) { }
+    private activatedroute: ActivatedRoute,private snackbar:MatSnackBar) { }
 
   ngOnInit(): void {
     //this.dataservice.receivedData.subscribe((response: any) => {  
     //   console.log(response)
+    this.bookid = this.activatedroute.snapshot.paramMap.get("bookId");       
     this.dataservice.newSearchMessage.subscribe(message => this.searchword = message)
 
       // this.searchword = response;
       // console.log(this.searchword);
 
       
-    this.bookid = this.activatedroute.snapshot.paramMap.get("bookId"); 
-    console.log(this.bookid);
+    // this.bookid = this.activatedroute.snapshot.paramMap.get("bookId"); 
+    // console.log(this.bookid);
 
 
     // });
@@ -61,5 +63,17 @@ export class GetallbookComponent implements OnInit {
     this.dataservice.sendData(book)
     localStorage.setItem('bookId', book._id);  
     this.route.navigateByUrl('/dashboard/bookview/' + book._id) 
+  }
+
+  addtocart(bookid:any) {
+    this.books.useraddtobag(bookid).subscribe((response: any) => {
+      console.log(response);
+      this.snackbar.open("book added to cart sucessfully!",'',{
+        duration: 3000,
+      })
+      // this.dataservice.sendData(book)
+
+    })
+    // this.route.navigateByUrl('/dashboard/cart')
   }
 }

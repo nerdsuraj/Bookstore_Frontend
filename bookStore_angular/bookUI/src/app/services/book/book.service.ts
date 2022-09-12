@@ -6,11 +6,10 @@ import { HttpServiceService } from '../httpservice/http-service.service';
   providedIn: 'root'
 })
 export class BookService {
-  token: any;
+ 
+token = localStorage.getItem("token");
 
-  constructor(private httpService:HttpServiceService ) {
-    this.token = localStorage.getItem("token");
-   }
+  constructor(private httpService:HttpServiceService ) {}
  
    getAllBooks() {
 
